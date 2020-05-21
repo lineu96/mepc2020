@@ -29,28 +29,11 @@ knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 
 ---
 
-```{r}
-# <center>
-# <table><tr>
-# <td> <img src="img/prppg2.png" alt="Drawing" style="width: 800px;"/> </td>
-# </tr></table>
-# </center>
-# 
-# <center>
-# <table><tr>
-# <td> <img src="img/transversais.png" alt="Drawing" style="width: 300px;"/> </td>
-# </tr></table>
-# </center>
-# 
-# ---
-# 
-# <center>
-# <font size="6"> 
-# <p align=”center”> <b> Métodos Estatísticos em Pesquisa Científica  </b> </center>
-# </font>
-# </center>
-
-```
+<center>
+<font size="6"> 
+<p align=”center”> <b> Métodos Estatísticos em Pesquisa Científica  </b> </center>
+</font>
+</center>
 
 ---
 
@@ -226,7 +209,7 @@ Podem ser:
 
 ---
 
-Formas convenientes de sintetizar dados é por meio de tabelas de frequência e gráficos.
+Podemos sintetizar a informação presente nos dados por meio de tabelas de frequência e gráficos.
 
 Cuidados devem ser tomados no que diz respeito à escolha do tipo de gráfico para representar a variável com o intuito de evitar que o gráfico fique desproporcional ou privilegiando determinados valores a fim de induzir conclusões àqueles que utilizam o gráfico como forma de visualização.
 
@@ -249,7 +232,7 @@ Algumas possibilidades de gráficos para cada tipo de variável são:
 
 # Análise univariada
 
-Vamos analisar, uma a uma, as questões do questionário
+Vamos analisar, uma a uma, as questões do questionário.
 
 ---
 
@@ -438,7 +421,7 @@ setor <- arrange(setor, setor$Freq)
 
 barplot(setor$Freq, col = '#A9F5D0', 
         names.arg = setor$`Setor de Atuação`, horiz = T,
-        xlim = c(0, max(setor$Freq + 10)),
+        xlim = c(0, max(setor$Freq + 30)),
         main = "Setor de atividade na UFPR",
         las = 2)
 
@@ -489,7 +472,7 @@ setor <- arrange(setor, setor$Freq)
 
 barplot(setor$Freq, col = '#A9F5D0', 
         names.arg = setor$`Setor de Atuação`, horiz = T,
-        xlim = c(0, max(setor$Freq + 10)),
+        xlim = c(0, max(setor$Freq + 30)),
         main = "Setor de atividade na UFPR",
         las = 2)
 
@@ -663,7 +646,7 @@ barplot(at_ord$freq,
         main = 'Atual atividade ',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(at_ord$freq)+10)
+        ylim = c(0, max(at_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -674,7 +657,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(at_ord$freq, plot = FALSE)), 
-     y = as.vector(at_ord$freq) + 5,
+     y = as.vector(at_ord$freq) + 10,
      labels = at_ord$freq, cex = .8)
 ```
 
@@ -717,7 +700,7 @@ barplot(at_ord$freq,
         main = 'Atual atividade ',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(at_ord$freq)+10)
+        ylim = c(0, max(at_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -728,7 +711,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(at_ord$freq, plot = FALSE)), 
-     y = as.vector(at_ord$freq) + 5,
+     y = as.vector(at_ord$freq) + 10,
      labels = at_ord$freq, cex = .8)
 ```
 
@@ -834,23 +817,23 @@ pander:::pander(tb.anoFimGrad)
 #### Tabela 3
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-medidas <- data.frame(minimo = quantile(quest$tc_anoFimGrad)[1],
-                      quart1 = quantile(quest$tc_anoFimGrad)[2],
-                      media = mean(quest$tc_anoFimGrad),
-                      mediana = quantile(quest$tc_anoFimGrad)[3],
-                      moda = names(sort(table(quest$tc_anoFimGrad), 
+medidas <- data.frame(minimo = quantile(ar_anoFimGrad)[1],
+                      quart1 = quantile(ar_anoFimGrad)[2],
+                      media = mean(ar_anoFimGrad),
+                      mediana = quantile(ar_anoFimGrad)[3],
+                      moda = names(sort(table(ar_anoFimGrad), 
                                         decreasing = TRUE)[1]),
-                      quart3 = quantile(quest$tc_anoFimGrad)[4],
-                      max = quantile(quest$tc_anoFimGrad)[5])
+                      quart3 = quantile(ar_anoFimGrad)[4],
+                      max = quantile(ar_anoFimGrad)[5])
 
 row.names(medidas) <- NULL
 
 pander(medidas)
 
-disp <- data.frame(amplitude = diff(range(quest$tc_anoFimGrad)),
-                   variancia = var(quest$tc_anoFimGrad),
-                   desv_pad = sd(quest$tc_anoFimGrad),
-                   coef_var = 100*sd(quest$tc_anoFimGrad)/mean(quest$tc_anoFimGrad))
+disp <- data.frame(amplitude = diff(range(ar_anoFimGrad)),
+                   variancia = var(ar_anoFimGrad),
+                   desv_pad = sd(ar_anoFimGrad),
+                   coef_var = 100*sd(ar_anoFimGrad)/mean(ar_anoFimGrad))
 
 pander(disp)
 
@@ -1018,12 +1001,12 @@ loc_ord <- arrange(loc, loc$freq)
 
 barplot(loc_ord$freq, col = '#BEF781', 
         names.arg = loc_ord$niveis, horiz = T,
-        xlim = c(0, max(loc_ord$freq + 10)),
+        xlim = c(0, max(loc_ord$freq + 30)),
         main = "Graduação",
         las = 2)
 
 text(y = as.vector(barplot(loc_ord$freq, plot = FALSE)), 
-     x = as.vector(loc_ord$freq) + 5,
+     x = as.vector(loc_ord$freq) + 10,
      labels = loc_ord$freq, cex = .8)
 
 abline(v=50, lty=3, col = 2)
@@ -1032,7 +1015,10 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
-
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
 ```
 
 ---
@@ -1073,12 +1059,12 @@ loc_ord <- arrange(loc, loc$freq)
 
 barplot(loc_ord$freq, col = '#BEF781', 
         names.arg = loc_ord$niveis, horiz = T,
-        xlim = c(0, max(loc_ord$freq + 10)),
+        xlim = c(0, max(loc_ord$freq + 30)),
         main = "Graduação",
         las = 2)
 
 text(y = as.vector(barplot(loc_ord$freq, plot = FALSE)), 
-     x = as.vector(loc_ord$freq) + 5,
+     x = as.vector(loc_ord$freq) + 10,
      labels = loc_ord$freq, cex = .8)
 
 abline(v=50, lty=3, col = 2)
@@ -1259,128 +1245,6 @@ text(x = c(bp),
 
 ---
 
-#### Comparativo 1
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-# 2020
-
-quest$ln_progGrad <- tolower(iconv(quest$ln_progGrad, 
-                                   to ='ASCII//TRANSLIT', 
-                                   from = "UTF-8"))
-
-quest$ln_progGrad <- ifelse(quest$ln_progGrad == "", NA, quest$ln_progGrad)
-
-quest$ln_progGrad <- gsub(",",";",quest$ln_progGrad)
-
-ar_progGrad <- cSplit(quest, "ln_progGrad", sep = ";", 
-                      direction = "long")$ln_progGrad
-
-ar_progGrad <- as.character(ar_progGrad)
-
-ar_progGrad[ which(is.na(ar_progGrad)) ] <- "nenhum"
-
-
-classOpcoes <- c("iniciacao cientifica",
-                 "pet",
-                 "monitoria",
-                 "projeto de extensao",
-                 "empresa junior",
-                 "nenhum")
-
-
-ar_progGrad[ !ar_progGrad %in% classOpcoes ] <- "outro"
-
-ar_progGrad <- as.factor(ar_progGrad)
-
-ar_progGrad <- factor(ar_progGrad,
-                      levels = c("iniciacao cientifica", 
-                                 "pet", "monitoria", 
-                                 "projeto de extensao", 
-                                 "empresa junior", 
-                                 "outro", "nenhum"))
-
-
-fa_prog <- table(ar_progGrad)   # frequência absoluta
-fr_prog <- prop.table(fa_prog) # frequência relativa
-#fac_prog <- cumsum(fr_prog)    # frequência acumulada
-
-prog <- data.frame(niveis = names(fr_prog),
-                   #freq = as.vector(fa_prog),
-                   freq_r = as.vector(fr_prog),
-                   ano = rep(2020,length(fr_prog))) # unindo as informações
-
-# 2019
-
-antigo$ln_progGrad <- tolower(iconv(antigo$ln_progGrad, 
-                                    to ='ASCII//TRANSLIT', 
-                                    from = "UTF-8"))
-
-antigo$ln_progGrad <- ifelse(antigo$ln_progGrad == "", NA, antigo$ln_progGrad)
-
-antigo$ln_progGrad <- gsub(",",";",antigo$ln_progGrad)
-
-ar_progGrad <- cSplit(antigo, "ln_progGrad", sep = ";", 
-                      direction = "long")$ln_progGrad
-
-ar_progGrad <- as.character(ar_progGrad)
-
-ar_progGrad[ which(is.na(ar_progGrad)) ] <- "nenhum"
-
-
-classOpcoes <- c("iniciacao cientifica",
-                 "pet",
-                 "monitoria",
-                 "projeto de extensao",
-                 "empresa junior",
-                 "nenhum")
-
-
-ar_progGrad[ !ar_progGrad %in% classOpcoes ] <- "outro"
-
-ar_progGrad <- as.factor(ar_progGrad)
-
-ar_progGrad <- factor(ar_progGrad,
-                      levels = c("iniciacao cientifica", 
-                                 "pet", "monitoria", 
-                                 "projeto de extensao", 
-                                 "empresa junior", 
-                                 "outro", "nenhum"))
-
-
-fa_prog <- table(ar_progGrad)   # frequência absoluta
-fr_prog <- prop.table(fa_prog) # frequência relativa
-#fac_prog <- cumsum(fr_prog)    # frequência acumulada
-
-prog2 <- data.frame(niveis = names(fr_prog),
-                   #freq = as.vector(fa_prog),
-                   freq_r = as.vector(fr_prog),
-                   ano = rep(2019,length(fr_prog))) # unindo as informações
-
-
-prog[8:14,] <- prog2
-prog$ano <- as.factor(prog$ano)
-
-ggplot(prog, 
-       aes(x=niveis, y=freq_r, fill=ano)) + 
-  geom_bar(stat="identity", alpha = 0.8, col = 1) +
-  xlab("") + ylab("Frequência relativa") + theme_classic()+
-  coord_flip() + ggtitle("Comparativo das Turmas")
-```
-
----
-
-#### Comparativo 2
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-ggplot(prog, 
-       aes(x=niveis, y=freq_r, fill=ano)) + 
-  geom_bar(stat="identity", position = "dodge",alpha = 0.8, col = 1) +
-  xlab("") + ylab("Frequência relativa") + theme_classic()+
-  coord_flip() + ggtitle("Comparativo das Turmas")
-```
-
----
-
 ### Se você já concluiu o mestrado, qual o ano de início do mestrado? E qual o ano de conclusão do seu mestrado? {.tabset .tabset-fade .tabset-pills}
 
 #### Tabela
@@ -1407,11 +1271,6 @@ tb.tempoMest$Perc <- 100 * prop.table(tb.tempoMest$Freq)
 names(tb.tempoMest)[1] <- "Duração do Mestrado"
 
 pander:::pander(tb.tempoMest)
-
-pander:::pander(cat( "Note que pela 1a pergunta do questionário, temos ", 
-                     qtddFimMestrado, 
-                     " alunos que já terminaram o Mestrado. Pelas respostas válidas, temos ",
-                     length(tempoMestValido), "alunos que concluíram o Mestrado."))
 
 
 ```
@@ -1546,7 +1405,7 @@ lmest_ord <- arrange(lmest, lmest$freq)
 
 barplot(lmest_ord$freq, col = '#D0A9F5', 
         names.arg = lmest_ord$niveis, horiz = T,
-        xlim = c(0, max(lmest_ord$freq + 10)),
+        xlim = c(0, max(lmest_ord$freq + 30)),
         main = "Instituição em que fez o mestrado",
         las = 2)
 
@@ -1605,12 +1464,12 @@ lmest_ord <- arrange(lmest, lmest$freq)
 
 barplot(lmest_ord$freq, col = '#D0A9F5', 
         names.arg = lmest_ord$niveis, horiz = T,
-        xlim = c(0, max(lmest_ord$freq + 10)),
+        xlim = c(0, max(lmest_ord$freq + 30)),
         main = "Instituição em que fez o mestrado",
         las = 2)
 
 text(y = as.vector(barplot(lmest_ord$freq, plot = FALSE)), 
-     x = as.vector(lmest_ord$freq) + 5,
+     x = as.vector(lmest_ord$freq) + 10,
      labels = lmest_ord$freq, cex = .8)
 
 abline(v=50, lty=3, col = 2)
@@ -1780,7 +1639,7 @@ barplot(bolsa_ord$freq,
         main = 'Bolsa de estudo',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(bolsa_ord$freq)+10)
+        ylim = c(0, max(bolsa_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -1791,7 +1650,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(bolsa_ord$freq, plot = FALSE)), 
-     y = as.vector(bolsa_ord$freq) + 5,
+     y = as.vector(bolsa_ord$freq) + 10,
      labels = bolsa_ord$freq, cex = 1)
 ```
 
@@ -1834,7 +1693,7 @@ barplot(bolsa_ord$freq,
         main = 'Bolsa de estudo',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(bolsa_ord$freq)+10)
+        ylim = c(0, max(bolsa_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -1845,7 +1704,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(bolsa_ord$freq, plot = FALSE)), 
-     y = as.vector(bolsa_ord$freq) + 5,
+     y = as.vector(bolsa_ord$freq) + 10,
      labels = bolsa_ord$freq, cex = 1)
 ```
 
@@ -2096,15 +1955,15 @@ pander:::pander(soft2) # gerando a tabela
 
 #### Gráfico
 
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE, fig.height= 10}
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 
-soft21 <- arrange(soft2, soft2$freq)
+soft21 <- arrange(soft2, desc(soft2$freq))
 
-barplot(soft21$freq, horiz = TRUE, 
-        names.arg = soft21$niveis,
+barplot(soft21$freq[1:15], horiz = TRUE, 
+        names.arg = soft21$niveis[1:15],
         col = rainbow(length(unique(soft21$niveis))),
-        main = "Softwares Estatísticos Usados",
-        xlim = c(0, max(soft21$freq + 10)), 
+        main = "15 Softwares Estatísticos mais Usados",
+        xlim = c(0, max(soft21$freq + 30)), 
         cex.names=0.8, las = 2)
 
 abline(v=50, lty=3, col = 2)
@@ -2113,6 +1972,10 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
 
 ```
 
@@ -2150,13 +2013,13 @@ soft2 <- data.frame(niveis = names(fa_soft2),
 
 # pander:::pander(soft2) # gerando a tabela
 
-soft21 <- arrange(soft2, soft2$freq)
+soft21 <- arrange(soft2, desc(soft2$freq))
 
-barplot(soft21$freq, horiz = TRUE, 
-        names.arg = soft21$niveis,
+barplot(soft21$freq[1:15], horiz = TRUE, 
+        names.arg = soft21$niveis[1:15],
         col = rainbow(length(unique(soft21$niveis))),
-        main = "Softwares Estatísticos Usados",
-        xlim = c(0, max(soft21$freq + 10)), 
+        main = "15 Softwares Estatísticos Usados",
+        xlim = c(0, max(soft21$freq + 30)), 
         cex.names=0.8, las = 2)
 
 abline(v=50, lty=3, col = 2)
@@ -2210,7 +2073,7 @@ bp <-
         #horiz = TRUE, 
         names.arg = uso$niveis,
         col = '#F5A9A9',
-        ylim = c(0, max(uso$freq + 20)), 
+        ylim = c(0, max(uso$freq + 40)), 
         cex.names=1,
         main = 'Usará métodos estatísticos no trabalho',
         #, las = 2
@@ -2698,13 +2561,13 @@ par(mfrow = c(1,2))
 ar_color <- c("#000000", "#D8D8D8")
 
 pie(turma$freq, col = ar_color,
-    main = "Assistiu alguma \naula no Youtube",
+    main = "Turma",
     labels = percent(turma$freq_r))
 
 legend("topleft", legend = turma$niveis, fill = ar_color, cex = 1)
 
 barplot(turma$freq, col = ar_color, 
-        main = "Assistiu alguma \naula no Youtube",
+        main = "Turma",
         names.arg = turma$niveis, 
         ylim = c(0, max(turma$freq + 20)))
 
@@ -2848,7 +2711,7 @@ pander:::pander(medio1) # gerando a tabela
 #### Gráfico
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-medio1$niveis <- c('Particular', 'Púbica', 'Ambos')
+medio1$niveis <- c('Púbica','Particular', 'Ambos')
 
 medio1 <- arrange(medio1, desc(medio1$niveis))
 
@@ -2918,7 +2781,7 @@ bp <-
           names.arg = medio2$niveis,
           col = '#29088A',
           main = "Modalidade de ensino médio",
-          ylim = c(0, max(medio2$freq + 20)), 
+          ylim = c(0, max(medio2$freq + 40)), 
           cex.names=1
           #, las = 2
   )
@@ -3109,11 +2972,35 @@ lines(y$y ~ y$x, lwd = 3)
 
 #### Tabela 1
 
+Sem tratamento
+
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 quest$tc_peso <- as.integer(quest$tc_peso)
+
 h <- hist(quest$tc_peso, plot = FALSE)
 breaks <- h$breaks
 classes <- cut(quest$tc_peso, breaks = breaks, 
+               include.lowest = TRUE, right = TRUE)
+tb.peso <- as.data.frame(table(classes))
+tb.peso$Perc <- 100 * prop.table(tb.peso$Freq)
+names(tb.peso)[1] <- "Peso"
+pander:::pander(tb.peso)
+```
+
+---
+
+#### Tabela 2
+
+Com tratamento
+
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
+quest$tc_peso <- as.integer(quest$tc_peso)
+
+peso <- subset(quest$tc_peso, quest$tc_peso>0 & quest$tc_peso<200)
+
+h <- hist(peso, plot = FALSE)
+breaks <- h$breaks
+classes <- cut(peso, breaks = breaks, 
                include.lowest = TRUE, right = TRUE)
 tb.peso <- as.data.frame(table(classes))
 tb.peso$Perc <- 100 * prop.table(tb.peso$Freq)
@@ -3123,27 +3010,27 @@ pander:::pander(tb.peso)
 
 ---
 
-#### Tabela 2
+#### Tabela 3
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 
-medidas <- data.frame(minimo = quantile(quest$tc_peso)[1],
-                      quart1 = quantile(quest$tc_peso)[2],
-                      media = mean(quest$tc_peso),
-                      mediana = quantile(quest$tc_peso)[3],
-                      moda = names(sort(table(quest$tc_peso), 
+medidas <- data.frame(minimo = quantile(peso)[1],
+                      quart1 = quantile(peso)[2],
+                      media = mean(peso),
+                      mediana = quantile(peso)[3],
+                      moda = names(sort(table(peso), 
                                         decreasing = TRUE)[1]),
-                      quart3 = quantile(quest$tc_peso)[4],
-                      max = quantile(quest$tc_peso)[5])
+                      quart3 = quantile(peso)[4],
+                      max = quantile(peso)[5])
 
 row.names(medidas) <- NULL
 
 pander(medidas)
 
-disp <- data.frame(amplitude = diff(range(quest$tc_peso)),
-                   variancia = var(quest$tc_peso),
-                   desv_pad = sd(quest$tc_peso),
-                   coef_var = 100*sd(quest$tc_peso)/mean(quest$tc_peso))
+disp <- data.frame(amplitude = diff(range(peso)),
+                   variancia = var(peso),
+                   desv_pad = sd(peso),
+                   coef_var = 100*sd(peso)/mean(peso))
 
 pander(disp)
 
@@ -3154,14 +3041,11 @@ pander(disp)
 #### Gráfico 1
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-h <- hist(quest$tc_peso[which(quest$tc_peso > 0)],
+h <- hist(quest$tc_peso[which(quest$tc_peso > 0 & quest$tc_peso < 200)],
           main = "Histograma do Peso", xlab = "Peso",
           ylab = "Densidade", col = "cornflowerblue", 
           probability = FALSE)
 
-y <- density(quest$tc_peso[which(quest$tc_peso > 0)])
-
-lines(y$y ~ y$x, lwd = 3)
 ```
 
 ---
@@ -3169,12 +3053,12 @@ lines(y$y ~ y$x, lwd = 3)
 #### Gráfico 2
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-h <- hist(quest$tc_peso[which(quest$tc_peso > 0)],
+h <- hist(quest$tc_peso[which(quest$tc_peso > 0 & quest$tc_peso < 200)],
           main = "Histograma do Peso", xlab = "Peso",
           ylab = "Densidade", col = "cornflowerblue", 
           probability = TRUE)
 
-y <- density(quest$tc_peso[which(quest$tc_peso > 0)])
+y <- density(quest$tc_peso[which(quest$tc_peso > 0& quest$tc_peso < 200)])
 
 lines(y$y ~ y$x, lwd = 3)
 ```
@@ -3202,9 +3086,13 @@ lines(y$y ~ y$x, lwd = 3)
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 quest <- transform(quest, tc_IMC =  quest$tc_peso/((quest$tc_altura/100)^2))
+
+imc <- subset(quest$tc_IMC, quest$tc_IMC < 70)
+
 #range(quest$tc_IMC, na.rm = TRUE)
-breaks <- c(0, 16, 17, 18.5, 25, 30, 35, 40, range(quest$tc_IMC, na.rm = TRUE)[2])
-classes <- cut(quest$tc_IMC, breaks = breaks, 
+breaks <- c(0, 16, 17, 18.5, 25, 30, 35, 40, range(imc, na.rm = TRUE)[2])
+
+classes <- cut(imc, breaks = breaks, 
                include.lowest = FALSE, right = FALSE)
 tb.imc <- as.data.frame(table(classes))
 tb.imc$Perc <- 100 * prop.table(tb.imc$Freq)
@@ -3219,23 +3107,23 @@ pander:::pander(tb.imc)
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 
-medidas <- data.frame(minimo = quantile(quest$tc_IMC)[1],
-                      quart1 = quantile(quest$tc_IMC)[2],
-                      media = mean(quest$tc_IMC),
-                      mediana = quantile(quest$tc_IMC)[3],
-                      moda = names(sort(table(quest$tc_IMC), 
+medidas <- data.frame(minimo = quantile(imc)[1],
+                      quart1 = quantile(imc)[2],
+                      media = mean(imc),
+                      mediana = quantile(imc)[3],
+                      moda = names(sort(table(imc), 
                                         decreasing = TRUE)[1]),
-                      quart3 = quantile(quest$tc_IMC)[4],
-                      max = quantile(quest$tc_IMC)[5])
+                      quart3 = quantile(imc)[4],
+                      max = quantile(imc)[5])
 
 row.names(medidas) <- NULL
 
 pander(medidas)
 
-disp <- data.frame(amplitude = diff(range(quest$tc_IMC)),
-                   variancia = var(quest$tc_IMC),
-                   desv_pad = sd(quest$tc_IMC),
-                   coef_var = 100*sd(quest$tc_IMC)/mean(quest$tc_IMC))
+disp <- data.frame(amplitude = diff(range(imc)),
+                   variancia = var(imc),
+                   desv_pad = sd(imc),
+                   coef_var = 100*sd(imc)/mean(imc))
 
 pander(disp)
 
@@ -3246,12 +3134,12 @@ pander(disp)
 #### Gráfico
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-h <- hist(quest$tc_IMC, breaks = breaks, main = "Histograma do IMC", xlab = "IMC", 
+h <- hist(imc, breaks = breaks, main = "Histograma do IMC", xlab = "IMC", 
           ylab = "Densidade", col = "yellow", freq = FALSE, ylim = c(0, 0.10))
-lines(density(quest$tc_IMC[which(quest$tc_IMC > 0)]), lwd = 3)
-rug(quest$tc_IMC[which(quest$tc_IMC > 0)])
+lines(density(imc[which(imc > 0)]), lwd = 3)
+rug(imc[which(imc > 0)])
 xx <- seq(0,60, len=200)
-yy <- dnorm(xx, mean=mean(quest$tc_IMC[which(quest$tc_IMC > 0)], na.rm=T), sd=sd(quest$tc_IMC[which(quest$tc_IMC > 0)]))
+yy <- dnorm(xx, mean=mean(imc[which(imc > 0)], na.rm=T), sd=sd(imc[which(imc > 0)]))
 lines(xx, yy, col=2, lwd = 3)
 ```
 
@@ -3435,6 +3323,7 @@ pander:::pander(mes) # gerando a tabela
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 plot(mes$freq, t = "h", xlab = "Mês", 
      ylab = "Frequência", lwd = 6,
+     ylim = c(0,max(mes$freq+10)),
      cex.axis = 0.8,main = "Mês de Aniversário")
 ```
 
@@ -3459,6 +3348,7 @@ mes <- data.frame(niveis = names(fa_mes),
 
 plot(mes$freq, t = "h", xlab = "Mês", 
      ylab = "Frequência", lwd = 6,
+     ylim = c(0, max(mes$freq)+10),
      cex.axis = 0.8,main = "Mês de Aniversário")
 
 ```
@@ -3514,7 +3404,7 @@ barplot(trab_ord$freq,
         main = 'Trabalho',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(trab_ord$freq)+10)
+        ylim = c(0, max(trab_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -3525,7 +3415,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(trab_ord$freq, plot = FALSE)), 
-     y = as.vector(trab_ord$freq) + 5,
+     y = as.vector(trab_ord$freq) + 10,
      labels = trab_ord$freq, cex = 1)
 
 ```
@@ -3573,7 +3463,7 @@ barplot(trab_ord$freq,
         main = 'Trabalho',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(trab_ord$freq)+10)
+        ylim = c(0, max(trab_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -3584,7 +3474,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(trab_ord$freq, plot = FALSE)), 
-     y = as.vector(trab_ord$freq) + 5,
+     y = as.vector(trab_ord$freq) + 10,
      labels = trab_ord$freq, cex = 1)
 ```
 
@@ -3629,12 +3519,12 @@ mor_ord <- arrange(mor, mor$freq)
 
 barplot(mor_ord$freq, col = '#0B243B', 
         names.arg = mor_ord$niveis, horiz = T,
-        xlim = c(0, max(mor_ord$freq + 10)),
+        xlim = c(0, max(mor_ord$freq + 30)),
         main = "Moradia",
         las = 2)
 
 text(y = as.vector(barplot(mor_ord$freq, plot = FALSE)), 
-     x = as.vector(mor_ord$freq) + 5,
+     x = as.vector(mor_ord$freq) + 10,
      labels = mor_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = '#FFFFFF')
@@ -3642,7 +3532,10 @@ abline(v=100, lty=3, col = '#FFFFFF')
 abline(v=150, lty=3, col = '#FFFFFF')
 abline(v=200, lty=3, col = '#FFFFFF')
 abline(v=250, lty=3, col = '#FFFFFF')
-abline(v=300, lty=3, col = '#FFFFFF')
+abline(v=350, lty=3, col = '#FFFFFF')
+abline(v=400, lty=3, col = '#FFFFFF')
+abline(v=450, lty=3, col = '#FFFFFF')
+abline(v=500, lty=3, col = '#FFFFFF')
 ```
 
 ---
@@ -3678,12 +3571,12 @@ mor_ord <- arrange(mor, mor$freq)
 
 barplot(mor_ord$freq, col = '#0B243B', 
         names.arg = mor_ord$niveis, horiz = T,
-        xlim = c(0, max(mor_ord$freq + 10)),
+        xlim = c(0, max(mor_ord$freq + 30)),
         main = "Moradia",
         las = 2)
 
 text(y = as.vector(barplot(mor_ord$freq, plot = FALSE)), 
-     x = as.vector(mor_ord$freq) + 5,
+     x = as.vector(mor_ord$freq) + 10,
      labels = mor_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = '#FFFFFF')
@@ -3842,7 +3735,7 @@ barplot(origem_ord$freq,
         main = 'Origem',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(origem_ord$freq)+10)
+        ylim = c(0, max(origem_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -3853,7 +3746,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(origem_ord$freq, plot = FALSE)), 
-     y = as.vector(origem_ord$freq) + 5,
+     y = as.vector(origem_ord$freq) + 10,
      labels = origem_ord$freq, cex = 1)
 
 
@@ -3902,12 +3795,12 @@ habit_ord <- arrange(habit, desc(habit$niveis))
 
 barplot(habit_ord$freq, col = '#F3F781', 
         names.arg = habit_ord$niveis, horiz = T,
-        xlim = c(0, max(habit_ord$freq + 10)),
+        xlim = c(0, max(habit_ord$freq + 30)),
         main = "Habilitação",
         las = 2)
 
 text(y = as.vector(barplot(habit_ord$freq, plot = FALSE)), 
-     x = as.vector(habit_ord$freq) + 5,
+     x = as.vector(habit_ord$freq) + 10,
      labels = habit_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = 2)
@@ -3916,6 +3809,11 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
+abline(v=550, lty=3, col = 2)
 ```
 
 ---
@@ -3952,12 +3850,12 @@ habit_ord <- arrange(habit, desc(habit$niveis))
 
 barplot(habit_ord$freq, col = '#F3F781', 
         names.arg = habit_ord$niveis, horiz = T,
-        xlim = c(0, max(habit_ord$freq + 10)),
+        xlim = c(0, max(habit_ord$freq + 30)),
         main = "Habilitação",
         las = 2)
 
 text(y = as.vector(barplot(habit_ord$freq, plot = FALSE)), 
-     x = as.vector(habit_ord$freq) + 5,
+     x = as.vector(habit_ord$freq) + 10,
      labels = habit_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = 2)
@@ -4018,7 +3916,7 @@ barplot(transp_ord$freq,
         main = 'Locomoção',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(transp_ord$freq)+10)
+        ylim = c(0, max(transp_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -4029,7 +3927,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(transp_ord$freq, plot = FALSE)), 
-     y = as.vector(transp_ord$freq) + 5,
+     y = as.vector(transp_ord$freq) + 10,
      labels = transp_ord$freq, cex = 1)
 
 ```
@@ -4075,7 +3973,7 @@ barplot(transp_ord$freq,
         main = 'Locomoção',
         ylab = 'Frequência',
         xlab = '',
-        ylim = c(0, max(transp_ord$freq)+10)
+        ylim = c(0, max(transp_ord$freq)+30)
         #horiz = T,
         #las=2,
 )
@@ -4086,7 +3984,7 @@ legend("topleft",
        cex = .8)
 
 text(x = as.vector(barplot(transp_ord$freq, plot = FALSE)), 
-     y = as.vector(transp_ord$freq) + 5,
+     y = as.vector(transp_ord$freq) + 10,
      labels = transp_ord$freq, cex = 1)
 ```
 
@@ -4345,7 +4243,7 @@ legend("topleft", legend = names(ppet), fill = ar_color, cex = 1)
 barplot(ppet, col = ar_color, 
         main = "Animais de estimação",
         names.arg = names(ppet), 
-        ylim = c(0, max(ppet + 20)))
+        ylim = c(0, max(ppet + 30)))
 
 text(x = as.vector(barplot(ppet, plot = FALSE)), 
      y = as.vector(ppet) + 10,
@@ -4365,12 +4263,12 @@ pet_ord <- arrange(pet, pet$freq)
 
 barplot(pet_ord$freq, col = '#E0F8F7', 
         names.arg = pet_ord$niveis, horiz = T,
-        xlim = c(0, max(pet_ord$freq + 10)),
+        xlim = c(0, max(pet_ord$freq + 30)),
         main = "Animais de estimação",
         las = 2)
 
 text(y = as.vector(barplot(pet_ord$freq, plot = FALSE)), 
-     x = as.vector(pet_ord$freq) + 5,
+     x = as.vector(pet_ord$freq) + 10,
      labels = pet_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = 2)
@@ -4379,6 +4277,11 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
+abline(v=550, lty=3, col = 2)
 
 ```
 
@@ -4463,12 +4366,12 @@ inst_ord <- arrange(inst, inst$freq)
 
 barplot(inst_ord$freq, col = '#CEF6CE', 
         names.arg = inst_ord$niveis, horiz = T,
-        xlim = c(0, max(inst_ord$freq + 10)),
+        xlim = c(0, max(inst_ord$freq + 30)),
         main = "Instrumentos musicais",
         las = 2)
 
 text(y = as.vector(barplot(inst_ord$freq, plot = FALSE)), 
-     x = as.vector(inst_ord$freq) + 5,
+     x = as.vector(inst_ord$freq) + 10,
      labels = inst_ord$freq, cex = 1)
 
 abline(v=50, lty=3, col = 2)
@@ -4477,6 +4380,11 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
+abline(v=550, lty=3, col = 2)
 
 ```
 
@@ -4543,6 +4451,16 @@ abline(v=150, lty=3, col = 2)
 abline(v=200, lty=3, col = 2)
 abline(v=250, lty=3, col = 2)
 abline(v=300, lty=3, col = 2)
+abline(v=350, lty=3, col = 2)
+abline(v=400, lty=3, col = 2)
+abline(v=450, lty=3, col = 2)
+abline(v=500, lty=3, col = 2)
+abline(v=550, lty=3, col = 2)
+abline(v=600, lty=3, col = 2)
+abline(v=650, lty=3, col = 2)
+abline(v=700, lty=3, col = 2)
+abline(v=750, lty=3, col = 2)
+abline(v=800, lty=3, col = 2)
 
 ```
 
@@ -4552,9 +4470,7 @@ abline(v=300, lty=3, col = 2)
 ## Questões extra
 
 
-### Quantos anos você acha que a pessoa da foto abaixo tem? {.tabset .tabset-fade .tabset-pills}
-
-Foram mostradas 2 fotos distintas: uma para os 174 primeiros respondentes e outra pros demais:
+### Quantos anos você acha que a pessoa da foto abaixo tem? 
 
 <center>
 <table><tr>
@@ -4574,11 +4490,13 @@ Foram mostradas 2 fotos distintas: uma para os 174 primeiros respondentes e outr
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 quest$tc_idadeProf <- as.numeric(quest$tc_idadeProf)
 
-h <- hist(quest$tc_idadeProf, plot = FALSE) #histograma
+idadeProf <- subset(quest$tc_idadeProf, quest$tc_idadeProf > 15 & quest$tc_idadeProf < 100)
+
+h <- hist(idadeProf, plot = FALSE) #histograma
 
 breaks <- h$breaks #armazenando os breaks do histograma 
 
-classes <- cut(quest$tc_idadeProf, breaks = breaks, 
+classes <- cut(idadeProf, breaks = breaks, 
                include.lowest = TRUE, right = TRUE) #gerando classes
 
 tb.idade <- as.data.frame(table(classes)) #gerando tabela com faixas
@@ -4596,23 +4514,23 @@ pander:::pander(tb.idade)
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
 
-medidas <- data.frame(minimo = quantile(quest$tc_idadeProf)[1],
-                      quart1 = quantile(quest$tc_idadeProf)[2],
-                      media = mean(quest$tc_idadeProf),
-                      mediana = quantile(quest$tc_idadeProf)[3],
-                      moda = names(sort(table(quest$tc_idadeProf), 
+medidas <- data.frame(minimo = quantile(idadeProf)[1],
+                      quart1 = quantile(idadeProf)[2],
+                      media = mean(idadeProf),
+                      mediana = quantile(idadeProf)[3],
+                      moda = names(sort(table(idadeProf), 
                                         decreasing = TRUE)[1]),
-                      quart3 = quantile(quest$tc_idadeProf)[4],
-                      max = quantile(quest$tc_idadeProf)[5])
+                      quart3 = quantile(idadeProf)[4],
+                      max = quantile(idadeProf)[5])
 
 row.names(medidas) <- NULL
 
 pander(medidas)
 
-disp <- data.frame(amplitude = diff(range(quest$tc_idadeProf)),
-                   variancia = var(quest$tc_idadeProf),
-                   desv_pad = sd(quest$tc_idadeProf),
-                   coef_var = 100*sd(quest$tc_idadeProf)/mean(quest$tc_idadeProf))
+disp <- data.frame(amplitude = diff(range(idadeProf)),
+                   variancia = var(idadeProf),
+                   desv_pad = sd(idadeProf),
+                   coef_var = 100*sd(idadeProf)/mean(idadeProf))
 
 pander(disp)
 
@@ -4623,7 +4541,7 @@ pander(disp)
 ##### Gráfico 1
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-plot(table(quest$tc_idadeProf), t = "h", xlab = "Idade", ylab = "Frequência", 
+plot(table(idadeProf), t = "h", xlab = "Idade", ylab = "Frequência", 
      lwd = 6, cex.axis = 0.8, main = "Idade professor")
 ```
 
@@ -4636,9 +4554,9 @@ layout(mat = matrix(c(1,2),2,1, byrow=TRUE),  height = c(3,1))
 par(mar=c(3.1, 3.1, 1.1, 2.1))
 
 
-hist(quest$tc_idadeProf,col = "#CEF6F5", main = 'Idade professor')
+hist(idadeProf,col = "#CEF6F5", main = 'Idade professor')
 
-boxplot(quest$tc_idadeProf, 
+boxplot(idadeProf, 
         horizontal=TRUE,
         outline=TRUE, 
         frame=F, 
@@ -4665,12 +4583,15 @@ boxplot(antigo$tc_idadeProf,
         width = 10)
 ```
 
-#### Foto 1 {.tabset .tabset-fade .tabset-pills}
+---
+
+#### Fotos {.tabset .tabset-fade .tabset-pills}
 
 ##### Tabela 1
 
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-idade_prof1 <- quest$tc_idadeProf[1:174]
+```{r}
+
+idade_prof1 <- idadeProf[c(1:174, 403:582)]
 
 h <- hist(idade_prof1, plot = FALSE) #histograma
 
@@ -4679,39 +4600,107 @@ breaks <- h$breaks #armazenando os breaks do histograma
 classes <- cut(idade_prof1, breaks = breaks, 
                include.lowest = TRUE, right = TRUE) #gerando classes
 
-tb.idade <- as.data.frame(table(classes)) #gerando tabela com faixas
+tb.idade1 <- as.data.frame(table(classes)) #gerando tabela com faixas
 
-tb.idade$Perc <- prop.table(tb.idade$Freq)
+tb.idade1$Freq_rel <- round(prop.table(tb.idade1$Freq),3)
 
-names(tb.idade)[1] <- "Idade"
+names(tb.idade1)[1] <- "Idade"
 
-pander:::pander(tb.idade)
+#-------------------------------------------------------
+
+idade_prof2 <- quest$tc_idadeProf[c(175:402, 583:nrow(quest))]
+
+idade_prof2 <- subset(idade_prof2, idade_prof2 > 15)
+
+classes <- cut(idade_prof2, breaks = breaks, 
+               include.lowest = TRUE, right = TRUE) #gerando classes
+
+tb.idade2 <- as.data.frame(table(classes)) #gerando tabela com faixas
+
+tb.idade2$Freq_rel <- round(prop.table(tb.idade2$Freq),3)
+
+names(tb.idade2)[1] <- "Idade"
+
 ```
+
+<center>
+<table><tr>
+<td> 
+
+Foto 1
+
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
+pander:::pander(tb.idade1)
+```
+
+</td>
+
+<td> <img src="img/LogoB.png" alt="Drawing" style="width: 150px;"/> </td>
+
+<td>
+
+Foto 2
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
+pander:::pander(tb.idade2)
+```
+
+</td>
+</tr></table>
+</center>
 
 ---
 
 ##### Tabela 2
 
 ```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-idade_prof11 <- quest[1:174,]
+idade_prof11 <- quest[c(1:174, 403:582),]
+idade_prof22 <- quest[c(175:402, 583:nrow(quest)),]
+idade_prof22 <- subset(idade_prof22, idade_prof22$tc_idadeProf > 15)
 
-medidas <- data.frame(minimo = quantile(idade_prof11$tc_idadeProf)[1],
-                      quart1 = quantile(idade_prof11$tc_idadeProf)[2],
-                      media = mean(idade_prof11$tc_idadeProf),
-                      mediana = quantile(idade_prof11$tc_idadeProf)[3],
-                      moda = names(sort(table(idade_prof11$tc_idadeProf), 
+medidas <- data.frame(foto = c('Foto 1', 'Foto 2'),
+  
+                      minimo = c(quantile(idade_prof11$tc_idadeProf)[1],
+                                 quantile(idade_prof22$tc_idadeProf)[1]),
+                      
+                      quart1 = c(quantile(idade_prof11$tc_idadeProf)[2],
+                                 quantile(idade_prof22$tc_idadeProf)[2] ),
+                      
+                      media = c(mean(idade_prof11$tc_idadeProf),
+                                mean(idade_prof22$tc_idadeProf)),
+                      
+                      mediana = c(quantile(idade_prof11$tc_idadeProf)[3],
+                                  quantile(idade_prof22$tc_idadeProf)[3]),
+                      
+                      moda = c(names(sort(table(idade_prof11$tc_idadeProf), 
                                         decreasing = TRUE)[1]),
-                      quart3 = quantile(idade_prof11$tc_idadeProf)[4],
-                      max = quantile(idade_prof11$tc_idadeProf)[5])
+                               names(sort(table(idade_prof22$tc_idadeProf), 
+                                          decreasing = TRUE)[1])),
+                      
+                      quart3 = c(quantile(idade_prof11$tc_idadeProf)[4],
+                                 quantile(idade_prof22$tc_idadeProf)[4]),
+                      
+                      max = c(quantile(idade_prof11$tc_idadeProf)[5],
+                              quantile(idade_prof22$tc_idadeProf)[5]))
 
 row.names(medidas) <- NULL
 
 pander(medidas)
 
-disp <- data.frame(amplitude = diff(range(idade_prof11$tc_idadeProf)),
-                   variancia = var(idade_prof11$tc_idadeProf),
-                   desv_pad = sd(idade_prof11$tc_idadeProf),
-                   coef_var = 100*sd(idade_prof11$tc_idadeProf)/mean(idade_prof11$tc_idadeProf))
+#------------------------------------------------
+
+disp <- data.frame(foto = c('Foto 1', 'Foto 2'),
+                   
+                   amplitude = c(diff(range(idade_prof11$tc_idadeProf)),
+                                 diff(range(idade_prof22$tc_idadeProf))),
+                   
+                   variancia = c(var(idade_prof11$tc_idadeProf),
+                                 var(idade_prof22$tc_idadeProf)),
+                   
+                   desv_pad = c(sd(idade_prof11$tc_idadeProf),
+                                sd(idade_prof22$tc_idadeProf)),
+                   
+                   coef_var = c(100*sd(idade_prof11$tc_idadeProf)/mean(idade_prof11$tc_idadeProf),
+                                100*sd(idade_prof22$tc_idadeProf)/mean(idade_prof22$tc_idadeProf)))
 
 pander(disp)
 
@@ -4721,109 +4710,53 @@ pander(disp)
 
 ##### Gráfico 1
 
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE, fig.height=5}
+par(mfrow = c(1,2))
+
 plot(table(idade_prof1), t = "h", xlab = "Idade", ylab = "Frequência", 
-     lwd = 6, cex.axis = 0.8, main = "Idade professor")
+     lwd = 6, cex.axis = 0.8, main = "Foto 1")
+
+plot(table(idade_prof2), t = "h", xlab = "Idade", ylab = "Frequência", 
+     lwd = 6, cex.axis = 0.8, main = "Foto 2")
 ```
 
 ---
 
 ##### Gráfico 2
 
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-layout(mat = matrix(c(1,2),2,1, byrow=TRUE),  height = c(3,1))
-par(mar=c(3.1, 3.1, 1.1, 2.1))
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE, fig.height=5}
+par(mfrow = c(1,2))
 
+hist(idade_prof1,col = "#CEF6F5", main = 'Foto 1', 
+     xlab = "Idade", ylab = "Frequência")
 
-hist(idade_prof1,col = "#CEF6F5", main = 'Idade professor')
+hist(idade_prof2,col = "#CEF6F5", main = 'Foto 2',
+     xlab = "Idade", ylab = "Frequência")
+```
+
+---
+
+##### Gráfico 3
+
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE, fig.height=5}
+par(mfrow = c(2,1))
 
 boxplot(idade_prof1, 
         horizontal=TRUE,
         outline=TRUE, 
         frame=F, 
         col = "#CEECF5", 
-        width = 10)
-```
-
-#### Foto 2 {.tabset .tabset-fade .tabset-pills}
-
-##### Tabela 1
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-idade_prof2 <- quest$tc_idadeProf[175:nrow(quest)]
-
-h <- hist(idade_prof2, plot = FALSE) #histograma
-
-breaks <- h$breaks #armazenando os breaks do histograma 
-
-classes <- cut(idade_prof2, breaks = breaks, 
-               include.lowest = TRUE, right = TRUE) #gerando classes
-
-tb.idade <- as.data.frame(table(classes)) #gerando tabela com faixas
-
-tb.idade$Perc <- prop.table(tb.idade$Freq)
-
-names(tb.idade)[1] <- "Idade"
-
-pander:::pander(tb.idade)
-```
-
----
-
-##### Tabela 2
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-
-idade_prof22 <- quest[174:nrow(quest),]
-
-medidas <- data.frame(minimo = quantile(idade_prof22$tc_idadeProf)[1],
-                      quart1 = quantile(idade_prof22$tc_idadeProf)[2],
-                      media = mean(idade_prof22$tc_idadeProf),
-                      mediana = quantile(idade_prof22$tc_idadeProf)[3],
-                      moda = names(sort(table(idade_prof22$tc_idadeProf), 
-                                        decreasing = TRUE)[1]),
-                      quart3 = quantile(idade_prof22$tc_idadeProf)[4],
-                      max = quantile(idade_prof22$tc_idadeProf)[5])
-
-row.names(medidas) <- NULL
-
-pander(medidas)
-
-disp <- data.frame(amplitude = diff(range(idade_prof22$tc_idadeProf)),
-                   variancia = var(idade_prof22$tc_idadeProf),
-                   desv_pad = sd(idade_prof22$tc_idadeProf),
-                   coef_var = 100*sd(idade_prof22$tc_idadeProf)/mean(idade_prof22$tc_idadeProf))
-
-pander(disp)
-
-```
-
----
-
-##### Gráfico 1
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-plot(table(idade_prof2), t = "h", xlab = "Idade", ylab = "Frequência", 
-     lwd = 6, cex.axis = 0.8, main = "Idade professor")
-```
-
----
-
-##### Gráfico 2
-
-```{r, comment=FALSE, message=FALSE, fig.align='center', warning=FALSE, echo = TRUE}
-layout(mat = matrix(c(1,2),2,1, byrow=TRUE),  height = c(3,1))
-par(mar=c(3.1, 3.1, 1.1, 2.1))
-
-
-hist(idade_prof2,col = "#CEF6F5", main = 'Idade professor')
+        width = 10,
+        main = "Foto 1")
 
 boxplot(idade_prof2, 
         horizontal=TRUE,
         outline=TRUE, 
         frame=F, 
         col = "#CEECF5", 
-        width = 10)
+        width = 10,
+        main = 'Foto 2')
+
 ```
 
 
@@ -5059,7 +4992,7 @@ levels(df$medio) <- c('ambos', 'particular', 'publica')
 boxplot(df$idade~df$medio,
         col = c('#D8D8D8','#D8F6CE', '#F6CEE3'),
         main = 'Idade x Ensino médio',
-        xlab = 'Tipo de E,M',
+        xlab = 'Tipo de E.M',
         ylab = 'Idade', 
         #varwidth=TRUE, 
         #notch=TRUE
@@ -5124,7 +5057,7 @@ lines(lowess(df$prof~df$aluno), col=5, lwd = 2)
 df <- data.frame(peso = quest$tc_peso,
                  altura = quest$tc_altura)
 
-df <- subset(df, peso > 15)
+df <- subset(df, peso > 15 & peso < 200)
 df <- subset(df, altura > 1.0)
 
 plot(df$peso~df$altura, 
@@ -5211,7 +5144,7 @@ corrplot::corrplot.mixed(cor1,
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
 <td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
-<td> <img src="img/leg2.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="img/leg_logo.png" alt="Drawing" style="width: 300px;"/> </td>
 </tr></table>
 </center>
 
@@ -5233,13 +5166,25 @@ pairs.panels(numericas,
 
 ---
 
+```{r, echo=FALSE, results='hide', warning=FALSE}
+
+quest$id_foto <- NA
+quest$id_foto[c(1:174, 403:582)] <- 1
+quest$id_foto[c(175:402, 583:nrow(quest))] <- 2
+
+write.csv(quest, file = "quest_tratado.csv")
+remove(list = ls())
+```
+
+---
+
 <center>
 <table><tr>
 <td> <img src="img/prppg.png" alt="Drawing" style="width: 250px;"/> </td>
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
 <td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
-<td> <img src="img/leg2.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="img/leg_logo.png" alt="Drawing" style="width: 300px;"/> </td>
 </tr></table>
 </center>
 

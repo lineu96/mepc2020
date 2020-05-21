@@ -17,14 +17,14 @@ navbar:
       menu:
         
         - text: "Aula 1" 
-        - text: "Questionário 2020"
+        - text: "Questionário"
           icon: fa-arrow-right
           href: quest2020.html
-        
-      
-        - text: "Teste"
+
+        - text: "csv"
           icon: fa-arrow-right
-          href: quest2020.html
+          href: quest/resp_mpec2020.csv
+
         - text: "---------"   
         
   right:
