@@ -32,9 +32,11 @@ Monitores de graduação (bolsistas):
 
 ---
 
-Esta página é destinada à disponibilização de referências externas e materiais complementares produzidos pelos monitores da disciplina Transversal [Métodos Estatísticos em Pesquisa Científica](http://www.prppg.ufpr.br/site/metodos-estatisticos-em-pesquisa-cientifica-2020-1/), ofertada no primeiro semestre de 2020.
+Esta página é destinada à disponibilização de materiais complementares produzidos pelos monitores da disciplina Transversal [Métodos Estatísticos em Pesquisa Científica](http://www.prppg.ufpr.br/site/metodos-estatisticos-em-pesquisa-cientifica-2020-1/), bem como de referências externas de outros autores.
 
 ---
+
+A oferta atual pode ser acessada pela [playlist](https://www.youtube.com/playlist?list=PLId4vyPr4QR3NVBZj8grQaqOvK4N4D5ML).
 
 Ofertas anteriores desta disciplina e também outras disciplinas transversais podem ser acessadas em [Produções PRPPG/UFPR](https://www.youtube.com/channel/UC1Eu8TwuKB_akNQELQN1GiA/playlists) no YouTube.
 
@@ -68,7 +70,7 @@ Diggle P.  & Chetwynd A. Statistics and Scientific Method. An Introduction for S
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
 <td> <img src="img/ufpr.jpg" alt="Drawing" style="width: 200px;"/> </td>
 <td> <img src="img/LogoB.png" alt="Drawing" style="width: 50px;"/> </td>
-<td> <img src="img/leg2.png" alt="Drawing" style="width: 250px;"/> </td>
+<td> <img src="img/leg_logo.png" alt="Drawing" style="width: 300px;"/> </td>
 </tr></table>
 </center>
 

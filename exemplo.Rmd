@@ -82,7 +82,7 @@ Ao trabalhar com Rmarkdown terá dois arquivos: o primeiro deles é editável, i
 
 O vídeo abaixo mostra como criar um arquivo RMarkdown no Rstudio. Note que quando geramos o arquivo nos é fornecido uma versão preenchida por exemplos:
 
-Caso o vídeo não seja iniciado automaticamente, pressione o botão direito do mouse e selecione o play.
+Caso o vídeo não seja iniciado automaticamente, pressione o botão direito do mouse e selecione o 'play' ou 'mostrar controles'.
 
 <video width="1000" height="400" autoplay loop>
   <source src="img/gera.webm" type="video/webm">
@@ -95,7 +95,7 @@ Your browser does not support the video tag.
 
 Para compilar, isto é, gerar o output no formato HTML, basta clicar no botão knit ou teclar `ctrl+shift+k`. Na primeira vez que fazemos isso nos é pedido para salvar o arquivo numa pasta de nossa preferência:
 
-Caso o vídeo não seja iniciado automaticamente, pressione o botão direito do mouse e selecione o play.
+Caso o vídeo não seja iniciado automaticamente, pressione o botão direito do mouse e selecione o 'play' ou 'mostrar controles'.
 
 <video width="1000" height="400" autoplay loop>
   <source src="img/knit.webm" type="video/webm">
@@ -445,6 +445,7 @@ Além de outros formatos de output não tratados aqui, vale citar a existência 
  - [Página do Rmarkdown](https://rmarkdown.rstudio.com/).
  - [Folha de cola Rmarkdown](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
  - [Rmarkdown-rautu, material do Prof. Fernando Mayer](http://www.leg.ufpr.br/~fernandomayer/palestra/useR-2015/Rmarkdown-rautu.html).
+ - [Arquivos para geração deste tutorial](https://github.com/lineu96/mepc2020/tree/master/html_exemplo)
 
 ---
 

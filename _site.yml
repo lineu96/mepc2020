@@ -10,8 +10,24 @@ navbar:
     - text: "Home"
       icon: fa-home
       href: index.html
+
+    - text: "Materiais introdutórios"
+      icon: fa-list-ol
+      menu:
+
+        - text: "---------" 
+
+        - text: "Noções de Probabilidade e Estatística"
+          icon: fa-arrow-right
+          href: https://lineu96.github.io/npest/
+          
+        - text: "Primeiros Passos com o R"
+          icon: fa-arrow-right
+          href: https://lineu96.github.io/minicurso_r/        
+
+        - text: "---------" 
       
-    - text: "Material"
+    - text: "Perfil da turma"
       icon: fa-list-ol
       menu:
         
@@ -28,7 +44,7 @@ navbar:
           icon: fa-arrow-right
           href: exemplo.html
 
-        - text: "---------"   
+        - text: "---------" 
         
   right:
     - text: "Lineu A.C.F"
