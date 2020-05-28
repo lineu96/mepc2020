@@ -6,7 +6,6 @@ navbar:
   type: inverse
   title: "MEPC 2020"
 
-
   left:
     - text: "Home"
       icon: fa-home
@@ -16,14 +15,18 @@ navbar:
       icon: fa-list-ol
       menu:
         
-        - text: "Aula 1" 
-        - text: "Questionário"
+        - text: "Perfil da turma"
+        - text: "Análise"
           icon: fa-arrow-right
           href: quest2020.html
 
-        - text: "csv"
+        - text: "Dados"
           icon: fa-arrow-right
-          href: quest/resp_mpec2020.csv
+          href: https://github.com/lineu96/mepc2020/tree/master/quest
+
+        - text: "Como gerar um relatório html"
+          icon: fa-arrow-right
+          href: exemplo.html
 
         - text: "---------"   
         
